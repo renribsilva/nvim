@@ -16,6 +16,7 @@ return {
         -- Não salva o ambiente de trabalho quando a sessão é encerrada
         R_args = { "--no-save" },
         -- Configura o mode de vizualização do console
+        R_app = "radian",
         min_editor_width = 10,
         rconsole_width = 50,
         -- navega pelos nomes das variáveis e executa comandos R sem precisar digitar o nome do objeto
