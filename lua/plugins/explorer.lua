@@ -7,6 +7,9 @@ return {
           win = {
             list = {
               keys = {
+                ["q"] = function()
+                  -- do nothing
+                end,
                 ["<Esc>"] = function()
                   --Do nothing
                 end,
