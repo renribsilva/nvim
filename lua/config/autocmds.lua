@@ -24,3 +24,16 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<nop>", { buffer = true, noremap = true })
   end,
 })
+
+-- Cria um keymap para executar sucrase-node em arquivos js e ts
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "typescript", "typescriptreact" },
+  callback = function()
+    vim.keymap.set(
+      "n",
+      "<localleader>b",
+      ':w<CR>:split | term npx sucrase-node "%"<CR>',
+      { desc = "Run JS/TS with sucrase-node", buffer = true, silent = true }
+    )
+  end,
+})
