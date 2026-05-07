@@ -4,7 +4,7 @@ return {
     picker = {
       layouts = {
         sidebar = {
-          layout = { width = 30, max_width = 30 },
+          layout = { width = 30, min_width = 30 },
         },
       },
     },
