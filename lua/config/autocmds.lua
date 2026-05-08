@@ -10,29 +10,20 @@
 -- Bloqueia :q
 _G.q_block = function()
   local ft = vim.bo.filetype
-  if ft == "snacks_explorer" or ft == "snacks_picker_input" or ft == "snacks_picker_list" then
+  if ft == "snacks_explorer" or ft == "snacks_picker_list" then
     return ""
-  end
-  local listed_buffers = vim.fn.getbufinfo({ buflisted = 1 })
-  if #listed_buffers <= 1 then
-    return "enew | bd #"
   else
-    return "lua Snacks.bufdelete()"
+    return "q"
   end
 end
 
 -- Bloqueia :bd
 _G.bd_block = function()
   local ft = vim.bo.filetype
-  if ft == "snacks_explorer" or ft == "snacks_picker_input" or ft == "snacks_picker_list" then
+  if ft == "snacks_explorer" or ft == "snacks_picker_list" then
     return ""
   end
-  local listed_buffers = vim.fn.getbufinfo({ buflisted = 1 })
-  if #listed_buffers <= 1 then
-    return "enew | bd #"
-  else
-    return "lua Snacks.bufdelete()"
-  end
+  return "lua Snacks.bufdelete()"
 end
 
 vim.cmd([[cnoreabbrev <expr> q v:lua.q_block()]])
@@ -41,7 +32,7 @@ vim.cmd([[cnoreabbrev <expr> bd v:lua.bd_block()]])
 vim.api.nvim_create_autocmd("WinEnter", {
   callback = function()
     local ft = vim.bo.filetype
-    if ft == "snacks_explorer" or ft == "snacks_picker_input" or ft == "snacks_picker_list" then
+    if ft == "snacks_explorer" or ft == "snacks_picker_list" then
       vim.keymap.set("n", "q", "<nop>", { buffer = true, silent = true })
       vim.keymap.set("n", "<Esc>", "<nop>", { buffer = true, silent = true })
       vim.keymap.set("n", "<leader>bd", "<nop>", { buffer = true, silent = true })
