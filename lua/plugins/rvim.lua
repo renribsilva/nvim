@@ -13,10 +13,13 @@ return {
             vim.api.nvim_buf_set_keymap(0, "v", "<Enter>", "<Plug>RSendSelection", {})
           end,
         },
-        -- Não salva o ambiente de trabalho quando a sessão é encerrada
+        -- Configuração do R
         R_args = { "--no-save", "--quiet" },
-        -- Configura o mode de vizualização do console
-        R_app = "Radian",
+        R_app = "radian",
+        R_cmd = "R",
+        hl_term = false,
+        bracketed_paste = true,
+        -- Configurações da janela do console
         min_editor_width = 10,
         rconsole_width = 50,
         objbr_mappings = {
