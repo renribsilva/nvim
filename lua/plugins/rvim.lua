@@ -16,10 +16,9 @@ return {
         -- Não salva o ambiente de trabalho quando a sessão é encerrada
         R_args = { "--no-save", "--quiet" },
         -- Configura o mode de vizualização do console
-        R_app = "R",
+        R_app = "Radian",
         min_editor_width = 10,
         rconsole_width = 50,
-        hl_term = false, -- navega pelos nomes das variáveis e executa comandos R sem precisar digitar o nome do objeto
         objbr_mappings = {
           c = "class",
           ["<localleader>gg"] = "head({object}, n = 15)",
