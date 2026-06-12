@@ -5,6 +5,7 @@ return {
     -- Garante que o componente de sintaxe (submódulo) seja baixado automaticamente
     submodules = true,
     config = function()
+      local r_app = vim.fn.executable("radian") == 1 and "radian" or "R"
       local opts = {
         -- Mapeia o Enter para enviar código ao R
         hook = {
@@ -15,7 +16,7 @@ return {
         },
         -- Configuração do R
         R_args = { "--no-save", "--quiet" },
-        R_app = "radian",
+        R_app = r_app,
         R_cmd = "R",
         hl_term = false,
         bracketed_paste = true,
